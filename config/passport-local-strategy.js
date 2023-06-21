@@ -57,5 +57,28 @@ passport.deserializeUser(function(id,done){
 })
 
 
+//check weather the user is authenticated or not
+passport.checkAuthentication=function(req,res,next){
+    //if the user is signed in ,then pass on the request to next function(controllers Action)
+    if(req.isAuthenticated()){
+        return next();
+    }
+
+        //if the user is not signed in 
+    return res.redirect('/users/sign-in');
+};
+
+
+passport.setAuthenticatedUser=function(req,res,next){
+    if(req.isAuthenticated()){
+
+        //req.user is contains the current signed user from the session cookie and we are sending it to the locals for view
+        res.locals.user=req.user;
+    }
+    next();
+
+}
+
+
 
 module.exports=passport;
