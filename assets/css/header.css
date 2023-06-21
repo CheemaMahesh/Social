@@ -1,0 +1,15 @@
+#headerDiv{
+    height:100px;
+    /* width:; */
+    background-color: rgb(213, 213, 229);
+    font-size: 1.3rem;
+    /* color: rgb(190, 108, 14); */
+    margin-top: -100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+ul{
+    list-style-type:none;
+}
