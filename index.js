@@ -87,9 +87,6 @@ app.use(passport.setAuthenticatedUser);
 
 
 
-
-
-
 //use express router
 app.use('/',require('./routs'));
 
