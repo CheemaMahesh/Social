@@ -88,5 +88,15 @@ User.findOne({email:req.body.email}).then((email)=>{
 //sign in and create a session for the user
 module.exports.createSession=function(req,res){
     return res.redirect('/');
+}
 
+
+//sign out and destroying the sesssion
+module.exports.destroySession=function(req,res){
+req.logout(function(err) {
+    if (err) { return next(err); }
+    res.redirect('/');
+  });
+
+    // return res.redirect('/');
 }
