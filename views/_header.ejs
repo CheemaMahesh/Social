@@ -1,7 +1,8 @@
+<link rel="stylesheet" href="/css/header.css">
 
-<headr>
+<headr >
+    <div id="headerDiv">
     <h4>header</h4>
-
     <ul>
                  <%if(locals.user){%>
                      <li><a href="/"><%=user.name%>
@@ -12,4 +13,5 @@
                     <li><a href="/users/sign-up">Sign-Up</a></li>
                 <%}%>
     </ul>
+</div>
 </headr>

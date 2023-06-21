@@ -9,6 +9,7 @@ const session=require('express-session');
 const passport=require('passport');
 const passportLocal=require('./config/passport-local-strategy');
 
+
 //importing connect-mongo and unline other libraries it requires an argument called(session====>that we have as a variable);
 const MongoStore=require('connect-mongo')
 // (session);
