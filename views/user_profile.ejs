@@ -1,8 +1,15 @@
-<!DOCTYPE html>
-<head><title> <%=title%> </title></head>
-<body>
+
+    <link rel="stylesheet" href="/css/user_profile.css">
+
+
     <!-- <%- include('_header') %> -->
-    <h1><i>User Profile ejs<%=title%></i></h1>
+    <div id="mm">
+        <h1><i>User Profile ejs<%=title%></i></h1>
+
+        <h3><i>Name:-<%=user.name%></i></h3>
+        <h3><i>Email:-<%=user.email%></i></h3>
+
+    </div>
+    
+
     <!-- <%- include('_footer') %> -->
-</body>
-</html>
