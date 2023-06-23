@@ -28,7 +28,6 @@ module.exports.signup=function(req,res){
 //render the sign in page
 module.exports.signin=function(req,res){
 
-    
     if(req.isAuthenticated()){
         return res.redirect('/users/profile');
     }
@@ -37,7 +36,6 @@ module.exports.signin=function(req,res){
         title:"Codieal | Sign in"
     })
 }
-
 
 //get the sign up data
 module.exports.create=function(req,res){
@@ -80,7 +78,6 @@ User.findOne({email:req.body.email}).then((email)=>{
     }
 
 })
-
 
 }
 
