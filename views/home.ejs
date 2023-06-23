@@ -17,7 +17,12 @@
         <h1><b>Posts</b></h1>
         <ol id="posts-display-ol">
             <%for(let post of posts){%>
-                <li id="posts-display-ol-li"><%=post.content%><br>
+                <li id="posts-display-ol-li">
+                    <%if(locals.user&&locals.user.id==post.user.id){%>
+                    <span><a href="/posts/destroy/<%=post.id%>">X</a></span>
+                    <%}%>
+                    
+                    <%=post.content%><br>
                    <%=post.user.name%><br>
                    <%if(locals.user){%>
 
