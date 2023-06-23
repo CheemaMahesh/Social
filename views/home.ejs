@@ -1,13 +1,51 @@
 
-   
+   <link rel="stylesheet" href="/css/home.css">
     <h1><i>Home Page :-Codieal||<%=title%></i></h1><br>
 
+    <%if(locals.user){%>
     <section id="feed-posts">
-        <h1>Posts</h1>
-        <form action=""  method="POST">
-            <textarea cols="30" rows="3" name="content"></textarea>
-            <input type="submit" value="Post">
-
+        <h1>Post</h1>
+        <form action="/posts/create"  method="POST">
+            <textarea cols="30" rows="3" name="content" placeholder="Type here....."></textarea>
+            <!-- <input type="submit" value="Post"> -->
+            <button name="post">Post</button>
         </form>
     </section>
+    <%}%>
+
+    <sesction id="posts-display">
+        <h1><b>Posts</b></h1>
+        <ol id="posts-display-ol">
+            <%for(let post of posts){%>
+                <li id="posts-display-ol-li"><%=post.content%><br>
+                   <%=post.user.name%><br>
+                   <%if(locals.user){%>
+
+
+                        <div class="post-comments-display">
+                            <ul id="post-comments-<%=post._id%>" class="pcd" type="square">
+                                <%for(let comment of post.comments){%>
+                                        <li id="posts-display-ul-li-id"><p id="big"><%=comment.content%></p>
+                                            <p id="small"><%=comment.user.name%></p></li>
+                                    
+                                    <%}%>
+                              
+                               
+                            </ul>
+                        </div>
+                    <div class="post-commentss">
+                        <form action="/comments/create"  method="POST">
+                            <input type="text"name="content" placeholder="Comment here.....">
+                            <input type="hidden" name="post" value="<%= post._id %>">
+                            <!-- <input type="submit" value="Post"> -->
+                            <button name="comment">Comment</button>
+                        </form>
+                    </div>
+                    <%}%>
+                </li><br>
+                 <%}%>
+
+        </ol>
+        
+    </sesction>
     

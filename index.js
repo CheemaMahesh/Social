@@ -11,15 +11,15 @@ const passportLocal=require('./config/passport-local-strategy');
 
 
 //importing connect-mongo and unline other libraries it requires an argument called(session====>that we have as a variable);
-const MongoStore=require('connect-mongo')
+const MongoStore=require('connect-mongo');
 // (session);
 
 //body-parser
 // const bodyParser = require('body-parser');
 
 app.use(express.urlencoded(
-    //  {extended:true}
-))
+     {extended:true}
+));
 
 
 
