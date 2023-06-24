@@ -5,6 +5,12 @@
 </head>
 <body>
     <%- include('_header') %>
+
+    <%if(flash.success&&flash.success.length>0){%>
+
+<%=flash.success%>
+        <%}%>
+
     <%-body%>
     <%- include('_footer') %>
     
