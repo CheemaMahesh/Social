@@ -2,6 +2,8 @@
    <link rel="stylesheet" href="/css/home.css">
     <h1><i>Home Page :-Codieal||<%=title%></i></h1><br>
 
+    
+
     <%if(locals.user){%>
     <section id="feed-posts">
         <h1>Post</h1>
@@ -12,7 +14,7 @@
         </form>
     </section>
     <%}%>
-
+    <div id="body">
     <sesction id="posts-display">
         <h1><b>Posts</b></h1>
         <ol id="posts-display-ol">
@@ -25,12 +27,16 @@
                     <%=post.content%><br>
                    <%=post.user.name%><br>
                    <%if(locals.user){%>
-
-
+                
+                
                         <div class="post-comments-display">
                             <ul id="post-comments-<%=post._id%>" class="pcd" type="square">
                                 <%for(let comment of post.comments){%>
-                                        <li id="posts-display-ul-li-id"><p id="big"><%=comment.content%></p>
+                                        <li id="posts-display-ul-li-id">
+                                            <%if(locals.user&&locals.user.id==comment.user.id){%>
+                                                <span><a href="/comments/destroy/<%=comment.id%>">Y</a></span>
+                                                <%}%>
+                                            <p id="big"><%=comment.content%></p>
                                             <p id="small"><%=comment.user.name%></p></li>
                                     
                                     <%}%>
@@ -47,10 +53,24 @@
                         </form>
                     </div>
                     <%}%>
-                </li><br>
+                </li>
                  <%}%>
 
         </ol>
         
     </sesction>
+
+    <section id="user-friends">
+        <h4>Friends</h4>
+
+        <%for(u of all_users){%>
+            <p>
+
+                <a href="/users/profile/<%=u.id%>"><%=u.name%></a>
+            </p>
+
+
+            <%}%>
+    </section>
+</div>
     
