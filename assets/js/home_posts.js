@@ -12,6 +12,7 @@
                     // console.log(data);
                     let newPost=newPostDom(data.data.post);
                     $('#posts-display>ol').prepend(newPost);
+                    deletePost($(` .delete-post-button` ,newPost));
                 },error:function(error){
                     console.log(error.responseText);
                 }
@@ -58,7 +59,14 @@
             e.preventDefault();
             $.ajax({
                 type:'get',
-                url:$(deleteLink).prop('href')
+                url:$(deleteLink).prop('href'),
+                success:function(data){
+                    $(`#post-${data.post._id}`).remove();
+
+                },error:function(errorData){
+                    console.log(errorData.responseText);
+
+                }
             })
 
         })
