@@ -7,8 +7,8 @@
     <%if(locals.user){%>
     <section id="feed-posts">
         <h1>Post</h1>
-        <form action="/posts/create"  method="POST">
-            <textarea cols="30" rows="3" name="content" placeholder="Type here....."></textarea>
+        <form action="/posts/create"   id="new-post-form" method="POST">
+            <textarea cols="30" rows="3" name="content" placeholder="Type here....." ></textarea>
             <!-- <input type="submit" value="Post"> -->
             <button name="post">Post</button>
         </form>
@@ -19,16 +19,14 @@
         <h1><b>Posts</b></h1>
         <ol id="posts-display-ol">
             <%for(let post of posts){%>
-                <li id="posts-display-ol-li">
+                <li id="post-<%=post._id%>" class="posts-display-ol-li">
                     <%if(locals.user&&locals.user.id==post.user.id){%>
-                    <span><a href="/posts/destroy/<%=post.id%>">X</a></span>
+                    <span><a class="delete-post-button" href="/posts/destroy/<%=post.id%>">X</a></span>
                     <%}%>
                     
                     <%=post.content%><br>
                    <%=post.user.name%><br>
                    <%if(locals.user){%>
-                
-                
                         <div class="post-comments-display">
                             <ul id="post-comments-<%=post._id%>" class="pcd" type="square">
                                 <%for(let comment of post.comments){%>
@@ -38,10 +36,7 @@
                                                 <%}%>
                                             <p id="big"><%=comment.content%></p>
                                             <p id="small"><%=comment.user.name%></p></li>
-                                    
                                     <%}%>
-                              
-                               
                             </ul>
                         </div>
                     <div class="post-commentss">
