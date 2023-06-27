@@ -71,6 +71,7 @@ const User=require('../models/user');
 const home = async (req, res) => {
   try {
     const posts = await Post.find({})
+      .sort('-createdAT')
       .populate('user')
       .populate({ path: 'comments', populate: { path: 'user' } })
       .exec();
