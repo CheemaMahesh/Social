@@ -25,7 +25,7 @@
     let newPostDom=function(post){
         return $(`
         <li id="post-${post._id}" class="posts-display-ol-li">
-        <span><a class="delete-post-button" href="/posts/destroy/${post.id}">X</a></span>
+        <span><a class="delete-post-button" href="/posts/destroy/${post._id}">X</a></span>
         
         ${post.content}<br>
        ${post.user.name}<br>
@@ -61,7 +61,7 @@
                 type:'get',
                 url:$(deleteLink).prop('href'),
                 success:function(data){
-                    $(`#post-${data.post._id}`).remove();
+                    $(`#post-${data.data.post_id}`).remove();
 
                 },error:function(errorData){
                     console.log(errorData.responseText);
