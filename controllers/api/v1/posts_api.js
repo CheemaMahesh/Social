@@ -1,5 +1,6 @@
 const Post=require('../../../models/post');
 const Comment=require('../../../models/comment');
+const User=require('../../../models/user');
 
 module.exports.index=async function(req,res){
 
@@ -9,10 +10,21 @@ module.exports.index=async function(req,res){
     .populate({ path: 'comments', populate: { path: 'user' } })
 
 
+    const users = await User.find({}).exec();
+
+    // return res.render('home', {
+    //   title: 'Home',
+    //   posts: posts,
+
+
+
     return res.status(200).json({
         message:'list of posts',
         mail:'maheshbabucheema789@gmail.com',
-        posts:posts
+        posts:posts,
+        // allUsers: users
+
+       
     });
 }
 
