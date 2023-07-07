@@ -39,7 +39,7 @@ module.exports.destroy = async function (req, res) {
     //   }
   
       // Check if the current user is the owner of the post
-    //   if (post.user.toString() === req.user.id) {
+      if (post.user.toString() === req.user.id) {
 
         //this deleteone is insted of post.remove();
         // await post.deleteOne();
@@ -48,9 +48,11 @@ module.exports.destroy = async function (req, res) {
         return res.status(200).json({
             message:"deleted successfuly with api"
         })
-    //   } else {
-    //     return res.redirect('back');
-    //   }
+      } else {
+        return res.status(401).json({
+          message:"You can not delete this post"
+        })
+      }
     } catch (err) {
       console.log("Error in deleting a post  with api:", err);
 

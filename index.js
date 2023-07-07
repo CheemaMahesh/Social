@@ -21,7 +21,9 @@ const MongoStore=require('connect-mongo');
 //body-parser
 // const bodyParser = require('body-parser');
 app.use(express.urlencoded(
-     {extended:true}
+     {
+        // extended:true
+    }
 ));
 
 
