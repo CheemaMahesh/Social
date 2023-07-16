@@ -37,6 +37,7 @@ app.use(cookieParser());
 
 
 app.use(express.static('./assets'));
+
 //make the uploaded path available to the borweser
 app.use('/uploads',express.static(__dirname+'/uploads'));
 app.use(expressLayouts);

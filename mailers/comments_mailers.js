@@ -1,12 +1,9 @@
 const nodeMailer=require('../config/nodemailer');
 
 
-
-
-
 //this is anther way of exporting a method
 exports.newComment=(comment)=>{
-    console.log("new comment mailer");
+    console.log("new comment mailer",comment);
     nodeMailer.transporter.sendMail({
         from:'maheshbabucheema789@gmail.com',
         to:comment.user.email,
@@ -17,6 +14,9 @@ exports.newComment=(comment)=>{
             console.log("error in sending mail:-",err);
             return;
         }
+
+        console.log("message sent:-",info);
+        return;
 
     })
 

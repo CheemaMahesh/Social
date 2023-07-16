@@ -1,6 +1,8 @@
 const Comment=require('../models/comment');
 const Post=require('../models/post');
 
+const commentsMailer=require('../mailers/comments_mailers');
+
 module.exports.create=async function(req,res){
     try{
 
@@ -14,9 +16,11 @@ module.exports.create=async function(req,res){
 
                 post.comments.push(comment);
                 post.save();
+
+                // comment =await comment.populate('user', 'name email').execPopulate();
+                commentsMailer.newComment(comment);
                 res.redirect('/');
         }
-
     }catch(err){
 
         console.log("error in creating a comment:-",err);
