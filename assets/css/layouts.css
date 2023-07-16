@@ -1,5 +1,7 @@
-body{
-    background-color:aquamarine;
-    /* text-align: center; */
-margin-top: 100px;
-}
+body {
+    margin: 0;
+    /* text-align: center; */ }
+    body #layout-main {
+      height: 100%;
+      overflow: auto; }
+  
