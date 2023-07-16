@@ -1,22 +1,25 @@
-const Comment=require('../models/comment');
-const Post=require('../models/post');
+const Comment = require('../models/comment');
+const Post = require('../models/post');
+// const commentsMailer = require('../mailers/comments_mailers');
+module.exports.create = async function(req, res){
 
-module.exports.create=async function(req,res){
     try{
+        let post = await Post.findById(req.body.post);
 
-        let post=await Post.findById(req.body.post);
-         if(post){
-           let comment=await Comment.create({
-                content:req.body.content,
-                post:req.body.post,
-                user:req.user._id
+        if (post){
+            let comment = await Comment.create({
+                content: req.body.content,
+                post: req.body.post,
+                user: req.user._id
             });
 
-                post.comments.push(comment);
-                post.save();
+            post.comments.push(comment);
+            post.save();
+            
+            // comment = await comment.populate('user', 'name email').execPopulate();
+            // commentsMailer.newComment(comment);
                 res.redirect('/');
         }
-
     }catch(err){
 
         console.log("error in creating a comment:-",err);

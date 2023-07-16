@@ -1,25 +1,21 @@
-#headerDiv{
-    height:100px;
-    /* width:; */
-    background-color: rgb(213, 213, 229);
-    font-size: 1.3rem;
-    /* color: rgb(190, 108, 14); */
-    margin-top: -100px;
+#layout-header nav {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
-}
-
-#ul{
-    list-style-type:none;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-#ul a{
-    text-decoration: none;
-color: rgb(33, 24, 13);
-font-size: 1.7rem;
-margin-left: 40px;
-
-}
+    padding: 0 10px;
+    background: #2196f3;
+    color: white;
+    box-shadow: 1px 1px 1px 1px lightgrey; }
+    #layout-header nav .mini-logo p {
+      margin: 5px;
+      font-size: 1.4rem;
+      font-weight: bold; }
+    #layout-header nav .auth-links ul {
+      margin: 5% 5px;
+      display: flex;
+      list-style: none; }
+      #layout-header nav .auth-links ul li {
+        margin-right: 10px; }
+    #layout-header nav a {
+      color: white;
+      text-decoration: none; }
+  
